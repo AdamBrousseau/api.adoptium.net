@@ -17,6 +17,7 @@ class BinaryFilter : Predicate<Binary> {
     private val imageType: ImageType?
     private val jvmImpl: JvmImpl?
     private val heapSize: HeapSize?
+    private val edition: Edition?
     private val project: Project
     private val before: DateTime?
 
@@ -26,6 +27,7 @@ class BinaryFilter : Predicate<Binary> {
         imageType: ImageType? = null,
         jvmImpl: JvmImpl? = null,
         heapSize: HeapSize? = null,
+        edition: Edition? = null,
         project: Project? = null,
         before: DateTime? = null
     ) {
@@ -34,6 +36,7 @@ class BinaryFilter : Predicate<Binary> {
         this.imageType = imageType
         this.jvmImpl = jvmImpl
         this.heapSize = heapSize
+        this.edition = edition
         this.project = project ?: Project.jdk
         this.before = before
     }
@@ -44,6 +47,7 @@ class BinaryFilter : Predicate<Binary> {
             (imageType == null || binary.image_type == imageType) &&
             (jvmImpl == null || binary.jvm_impl == jvmImpl) &&
             (heapSize == null || binary.heap_size == heapSize) &&
+            (edition == null || binary.edition == edition) &&
             (binary.project == project) &&
             (before == null || binary.updated_at.dateTime.isBefore(before.dateTime))
     }

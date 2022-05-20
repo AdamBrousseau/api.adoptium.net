@@ -25,7 +25,7 @@ class ExtractIbmReleases {
     private lateinit var mapper: ObjectMapper
 
     companion object {
-        val VERSIONS = listOf(8, 11, 17)
+        val VERSIONS = listOf(11, 17)
     }
 
     @BeforeEach
